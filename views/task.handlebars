@@ -1,0 +1,118 @@
+<!-- THE NEW TASK MODULE -->
+
+<div class="splash-holder">
+    <ul class="pageNav">
+      <li><a class="active" href="#home"></a></li>
+      <li class="right"><a href="/logout">Logout</a></li>
+      <li class="right"><a href="/dashboard">Dashboard</a></li>
+      <li class="right"><a href="/search">Search</a></li>
+    </ul>
+</div>
+
+<div class="modules-loggedIn">
+
+<aside class="newTask-holder">
+
+      <!-- <button class="nav-close fa fa-times fa-3x" type="nav-close"></button> -->
+
+      <h1><!-- title (css)--></h1>
+
+      <!-- "PLEASE LOG IN" alert (css)-->
+      <h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
+
+
+      <div class="newTask-form-holder">
+
+        <form class="newTask-form" method="post" action="/addTask/{{this.userName}}">
+
+          <h5><!-- sub-title (css) --></h5>
+
+          <!-- task text input -->
+          <h3></h3>
+          <textarea name="taskName" class="input" rows="1" placeholder="Task Name" required></textarea>
+
+          <!-- assigned to user select -->
+          <h3></h3>
+          <input type="text" name="assigned_to" placeholder="Type a UserName Here">
+
+
+          <!-- category select -->
+          <h3></h3>
+          <input type="text" name="taskCategory" placeholder="Task Category">
+
+
+          <!-- description input -->
+          <h3></h3>
+          <input type="text" name="taskDescription" placeholder="Task Quick Description">
+
+          <!-- Link Input -->
+          <h3></h3>
+          <input class="newTaskText" type="text" name="taskLink" placeholder="Task link attachment">
+
+
+          <!-- image Input -->
+          <h3></h3>
+
+          <div class="newTask-image-container">
+            <div class="imgNav">
+              <button type="button" onclick="img_Btn('image_import', this)"></button>
+              <button type="button" onclick="img_Btn('draw_import', this)"></button>
+            </div>
+
+            <div class="imgImport-holder hide" id="imgImport">
+
+              <h6></h6>
+              <input id="from-url" class="image-url" placeholder="url" type="text" name="imageURL"/>
+
+              <!-- <h6></h6>
+              <input id="from-local" type="file" name="taskPic" accept="image/*"> -->
+            </div>
+
+            <div class="imgDraw-holder hide" id="drawImport">
+
+              <h6></h6>
+              <div id="drawingCanvas"></div>
+            </div>
+
+            <!-- upload image button -->
+            <!-- uploads images from ... -->
+            <!-- above this to below this -->
+            <div class="uploadImg-btn-holder hide" id="uploadImg-btn-holder">
+              <button type="button" id="uploadImg-btn" onclick="img_Btn('upload_image')"></button>
+            </div>
+
+            <!-- uploaded images go here -->
+            <div id="imgUploaded-holder" class="imgUploaded-holder hide"></div>
+          </div>
+
+          <!-- due date input -->
+          <h3></h3>
+          <input class="taskText" class="due" type="date" name="dueDate"/>
+
+
+          <h2><!-- title (css)--></h2>
+          <button type="submit" id="addTask"></button>
+        </form>
+
+
+      </div>
+
+    </aside>
+
+</div>
+
+
+<footer>
+  <p>Tikit was made by Aparna and Brian for Rutgers Coding Bootcamp in 2017</p>
+  <div class="icons">
+    <a href="/"></a>
+    <a href="https://github.com/eyeofbri/Project2_Tic-It"></a>
+    <a href="https://bootcamp.rutgers.edu/"></a>
+  </div>
+  <ul class="splash">
+    <li><a href="https://github.com/AparnaThirthapura">Aparna</a></li>
+    <li><a href="https://github.com/eyeofbri">Brian</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/signup">SignUp</a></li>
+  </ul>
+</footer>

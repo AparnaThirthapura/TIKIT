@@ -1,0 +1,207 @@
+<!-- THE SEARCH MODULE -->
+
+<div class="splash-holder">
+  <ul class="pageNav">
+    <li><a class="active" href="#home"></a></li>
+    <li class="right"><a href="/logout">Logout</a></li>
+    <li class="right"><a href="/dashboard">Dashboard</a></li>
+    <li class="right"><a href="/addTask">New Task</a></li>
+  </ul>
+</div>
+
+
+<div class="modules-loggedIn">
+
+<aside class="search-holder">
+
+  <h1><!-- title (css)--></h1>
+
+  <!-- "PLEASE LOG IN" alert (css)-->
+  <h4><i class="fa fa-exclamation-circle fa-2x" aria-hidden="true"></i></h4>
+
+  <h3><!-- search label --></h3>
+
+  <div class="search-form-holder">
+    <form class="search-form" id="" action="/searchTask" method="POST">
+      <label for="">By Task Name </label>
+      <input class="new-search" placeholder="query" type="text" name="taskName" />
+      <button type="submit" class="fa fa-plus-circle fa-3x"></button>
+    </form>
+  </div>
+
+    <div class="search-form-holder">
+    <form class="search-form" id="" action="/searchUser" method="POST">
+      <label for="">By User Name </label>
+      <input class="new-search" placeholder="query" type="text" name="userName" />
+      <button type="submit" class="fa fa-plus-circle fa-3x"></button>
+    </form>
+  </div>
+
+</aside>
+
+</div>
+
+<!-- <div class="">
+  {{#each dbTask}}
+    {{this.task}}
+    {{this.assigned_to}}
+    {{this.complete}}
+    {{this.date_due}}
+  {{/each}}
+</div> -->
+
+
+
+
+
+<!-- this is: the element that holds All tasks -->
+<section>
+
+  {{#each dbTask }}
+
+  <!--<h1>{{animalType}}</h1>
+  <h1>{{pet}}</h1> 
+  <h1>{{fierceness}}</h1> -->
+
+  <!-- this is: a single task holder-->
+  <article>
+
+    <div class="task-leftSide">
+      <div class="task-main">
+        <div class="completeBtn-holder">
+          <!-- this is: task complete button -->
+          <button class="completeBtn">
+            <span class="fa fa-check fa-2x" aria-hidden="true"></span>
+          </button>
+        </div>
+
+        <div class="taskText-holder">
+          <!-- this is: the main taskt text display -->
+          <div class="taskText">
+            {{this.task}}
+          </div>
+        </div>
+      </div>
+
+
+      <div class="assignedTo-CreatedBy">
+        <div class="assignedTo">{{this.assigned_to}}</div>
+        <div class="createdBy">{{this.created_by}}</div>
+      </div>
+
+
+      <div class="details-holder-closed">
+
+        <button class="detailsToggle-btn" onclick="UI_Btn(this)"></button>
+
+        <div class="category-holder"> {{this.category}} </div>
+
+        <div class="task-description"> {{this.description}} </div>
+
+        <div class="task-link-holder">
+          <a class="task-link" target="_blank" href="{{link}}">{{this.link}}</a>
+        </div>
+
+        <div class="taskDrawing-SectionContainer">
+          <!-- this holds this drawings button and img) -->
+          <div class="drawingImg-holder">
+            <!-- this is the drawing grow shrink toggle -->
+            <button class="drawBtn-closed" onclick="UI_Btn(this,'draw')">
+              <!-- the actual drawing -->
+              <img class="drawingImg" src="testDrawing.jpg">
+            </button>
+          </div>
+        </div>
+
+        
+      </div>
+
+
+      <div class="dates-holder">
+        <div class="date-listed">
+          <!-- // YYYY-MM-DD HH:MM:SS -->
+          <div class="date">{{this.date_due}}
+          <!-- 02 MAY -->
+            <!-- <sub>17</sub> -->
+          </div>
+          <div class="time">10:39 PM</div>
+        </div>
+        <div class="date-due">
+          <div class="date">05 MAY
+            <sub>17</sub>
+          </div>
+          <div class="time">2:02 PM</div>
+        </div>
+      </div>
+
+    <!-- end of the left-side of a task -->
+    </div>
+
+    <div class="task-rightSide-closed">
+      <div class="comments-SectionContainer">
+
+        <button class="comments-toggle-btn-OUTER" data-commentNumber="7" onclick="UI_Btn(this,'outer')">
+          <span class="fa fa-comment fa-2x" aria-hidden="true"></span>
+        </button>
+
+        <div class="comments-holder">
+          <button class="comments-toggle-btn-INNER fa fa-comment fa-1x"
+          data-commentNumber="7" onclick="UI_Btn(this,'inner')"></button>
+
+          <div class="comments-list">
+            <ol>
+              <li><span>Brian:</span>This is a comment on a task! Maybe it's a question??</li>
+              <li><span>Admin:</span>Got it!</li>
+              <li><span>Admin:</span>Here is you're answer.... Yes.</li>
+              <li><span>Brian:</span>Okay.</li>
+              <li><span>Admin:</span>Cool.</li>
+              <li><span>Brian:</span>But what if there is more text?</li>
+              <li><span>Admin:</span>It'll work.</li>
+            </ol>
+          </div>
+
+          <div class="comment-form-holder">
+            <!-- this woold need an id link to this tasks comment obj -->
+            <form class="comment-form" id="">
+              <input class="new-comment" placeholder="message" type="text" />
+              <button type="submit" class="fa fa-plus-circle fa-3x"></button>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="edit-delete-btn-holder">
+        <button class="edit-task fa fa-pencil-square fa-1x"></button>
+        <button class="delete-task fa fa-trash fa-1x"></button>
+      </div>
+    <!-- end of the right-side of a task -->
+    </div>
+
+  <!-- end of a task -->
+  </article>
+
+  {{/each}}
+
+
+<!-- end of all tasks -->
+</section>
+
+
+
+
+
+<footer>
+  <p>Tikit was made by Aparna and Brian for Rutgers Coding Bootcamp in 2017</p>
+  <div class="icons">
+    <a href="/"></a>
+    <a href="https://github.com/eyeofbri/Project2_Tic-It"></a>
+    <a href="https://bootcamp.rutgers.edu/"></a>
+  </div>
+  <ul class="splash">
+    <li class="right"><a href="/logout">LogOut</a></li>
+    <li class="right"><a href="/dashboard/{{this.userName}}">Dashboard</a></li>
+    <li class="right"><a href="/addTask/{{this.userName}}">NewTask</a></li>
+  </ul>
+</footer>

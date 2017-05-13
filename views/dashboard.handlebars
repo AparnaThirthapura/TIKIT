@@ -1,0 +1,39 @@
+<div class="modules-loggedIn">
+	<aside class="settings-holder">
+		<button class="nav-close fa fa-times fa-3x" type="nav-close"></button>
+		<h5><!-- logged out title (css) --></h5>
+		<h1><!-- search title (css) --></h1>
+		<h2>
+			<!-- HANDLEBARS NEEDED: to: fill in username...-->
+			{{this.name}}
+		</h2>
+
+		<h3>
+			<br><!-- search label (css)--><br>
+			<span class="fa fa-list-alt fa-3x" aria-hidden="true"></span>
+			<!-- users tasks created (handlebars) -->
+			 {{this.numCreated}} Created<br>
+
+			<span class="fa fa-thumb-tack fa-3x" aria-hidden="true"></span>
+			<!-- users assigned tasks (handlebars) -->
+		 	{{this.numAssigned}} Assigned To You<br>
+
+			<span class="fa fa-trophy fa-3x" aria-hidden="true"></span>
+			<!-- users completed tasks (handlebars) -->
+		 	{{this.numCompleted}} Completed
+		</h3>
+
+	</aside>
+</div>
+
+<footer>
+	<p>Tikit was made by Aparna and Brian for Rutgers Coding Bootcamp in 2017</p>
+	<div class="icons">
+		<a href="/"></a>
+		<a href="https://github.com/eyeofbri/Project2_Tic-It"></a>
+		<a href="https://bootcamp.rutgers.edu/"></a>
+	</div>
+	<ul class="splash">
+	  <li><a href="/logout">Logout</a></li>
+	</ul>
+</footer>
