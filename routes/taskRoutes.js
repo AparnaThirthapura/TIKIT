@@ -14,7 +14,9 @@ module.exports = function(app){
   });
 
 	app.post("/addTask/:userName", function(req, res){
-	    console.log(req.body);
+	    console.log("============");
+      console.log("Request body for adding task:");
+      console.log(req.body);
 	    db.Task.create({
         task:req.body.taskName,
         description:req.body.taskDescription,
@@ -24,7 +26,9 @@ module.exports = function(app){
         category:req.body.taskCategory,
         date_created:new Date(),
         date_due:req.body.dueDate,
-        drawing_URL:req.body.imageURL
+        // drawing_Image:
+        drawing_URL:req.body.imageURL,
+        link:req.body.taskLink
       }).then(function(dbTask){
 	      // console.log(dbTask);
         console.log("Going back to index page...");
@@ -42,7 +46,7 @@ module.exports = function(app){
 
     }).then(function(dbTask){
       console.log(dbTask);
-      // res.render("index", {dbTask});
+      res.render("index", {dbTask});
     });
   });
 };
