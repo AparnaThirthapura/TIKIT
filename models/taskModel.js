@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes){
-	var task = sequelize.define("Task", {
+	var Task = sequelize.define("Task", {
 		task:{
 			type:DataTypes.STRING
 
@@ -49,5 +49,5 @@ module.exports = function(sequelize, DataTypes){
 		 timestamps: false
 	}
 	);
-	return task;
+	return Task;
 };
