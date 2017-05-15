@@ -34,7 +34,7 @@ require("./routes/taskRoutes.js")(app);
 require("./routes/searchRoutes.js")(app);
 require("./routes/dashboardRoutes.js")(app);
 
-db.sequelize.sync().then(function(){
+db.sequelize.sync({force:true}).then(function(){
 	app.listen(port, function(err){
 		if(!err)
 			console.log("Server running on PORT" + port);
